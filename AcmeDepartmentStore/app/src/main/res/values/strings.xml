@@ -2,4 +2,5 @@
     <string name="app_name">Acme Department Store</string>
     <string name="app_name_short">ADS</string>
     <string name="arrow_right">&gt;</string>
+    <string name="error_nyi">Module Not Yet Implemented</string>
 </resources>

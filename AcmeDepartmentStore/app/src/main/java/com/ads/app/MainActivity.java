@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import androidx.fragment.app.Fragment;
 import android.os.Bundle;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,6 +17,12 @@ public class MainActivity extends AppCompatActivity {
         addFragment(R.id.page_container, new MainMenuFragment(), MainMenuFragment.FRAGMENT_TAG);
     }
 
+    // Public Fragment calls
+    public void navigationNotFound(View view) {
+        replaceFragment(R.id.page_container, new NotImplementedFragment(), NotImplementedFragment.FRAGMENT_TAG, null);
+    }
+
+    // Fragment Handlers
     private void addFragment(int containerId, Fragment fragment, String fragmentTag) {
         getSupportFragmentManager()
                 .beginTransaction()

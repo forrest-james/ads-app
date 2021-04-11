@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Acme Department Store</string>
     <string name="app_name_short">ADS</string>
+    <string name="arrow_right">&gt;</string>
 </resources>

@@ -21,9 +21,9 @@ public class DataManager {
     }
 
     // Properties
-    private List<Department> Departments;
-    private List<Item> PopularItems;
-    private List<Item> RecommendedItems;
+    private List<Department> Departments = new ArrayList<>();
+    private List<Item> PopularItems = new ArrayList<>();
+    private List<Item> RecommendedItems = new ArrayList<>();
 
     // Getters
     public List<String> DepartmentNames() {
@@ -44,6 +44,11 @@ public class DataManager {
 
     public List<Item> RecommendedItems() {
         return RecommendedItems;
+    }
+
+    // Public Methods
+    public List<Item> getDepartmentItems(Department department) {
+        return Departments.get(Departments.indexOf(department)).Items();
     }
 
     // Create In Memory Data Set

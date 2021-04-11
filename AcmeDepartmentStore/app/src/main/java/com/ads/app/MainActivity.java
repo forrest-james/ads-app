@@ -13,6 +13,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Initialize the in memory data
+        DataManager.getInstance();
+
         setContentView(R.layout.activity_main);
         addFragment(R.id.page_container, new MainMenuFragment(), MainMenuFragment.FRAGMENT_TAG);
     }
@@ -20,6 +24,10 @@ public class MainActivity extends AppCompatActivity {
     // Public Fragment calls
     public void navigationNotFound(View view) {
         replaceFragment(R.id.page_container, new NotImplementedFragment(), NotImplementedFragment.FRAGMENT_TAG, null);
+    }
+
+    public void navigateToDepartments(View view) {
+        replaceFragment(R.id.page_container, new DepartmentsFragment(), DepartmentsFragment.FRAGMENT_TAG, null);
     }
 
     // Fragment Handlers

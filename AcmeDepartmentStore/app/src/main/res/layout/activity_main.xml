@@ -40,7 +40,7 @@
 
     </LinearLayout>
 
-    <ScrollView
+    <FrameLayout
         android:id="@+id/page_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -49,7 +49,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleBar">
 
-    </ScrollView>
+    </FrameLayout>
 
     <androidx.gridlayout.widget.GridLayout
         android:id="@+id/app_navigation"
@@ -82,8 +82,10 @@
             android:id="@+id/nav_departments"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:clickable="true"
             android:drawableTop="@drawable/ic_baseline_category"
             android:gravity="center"
+            android:onClick="navigateToDepartments"
             android:text="Store"
             android:textColor="@color/white"
             android:textSize="18sp"

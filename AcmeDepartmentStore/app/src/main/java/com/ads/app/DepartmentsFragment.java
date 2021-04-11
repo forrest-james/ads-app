@@ -40,7 +40,7 @@ public class DepartmentsFragment extends Fragment {
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-        final ListView listView = (ListView)getView().findViewById(R.id.department_listview);
+        final ListView listView = view.findViewById(R.id.department_listview);
         final List<String> departmentsList = DataManager.getInstance().DepartmentNames();
         final ArrayAdapter adapter = new ArrayAdapter(getActivity(), R.layout.department_list, R.id.department_label, departmentsList);
         listView.setAdapter(adapter);

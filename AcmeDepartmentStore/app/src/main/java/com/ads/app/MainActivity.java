@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     private MainMenuFragment menuFragment;
+    private TextView _pageTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
         DataManager.getInstance();
 
         setContentView(R.layout.activity_main);
+        _pageTitle = (TextView)findViewById(R.id.pageTitle);
+        _pageTitle.setText(getString(R.string.app_name));
         addFragment(R.id.page_container, new MainMenuFragment(), MainMenuFragment.FRAGMENT_TAG);
     }
 
@@ -27,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void navigateToDepartments(View view) {
+        _pageTitle.setText("Departments");
         replaceFragment(R.id.page_container, new DepartmentsFragment(), DepartmentsFragment.FRAGMENT_TAG, null);
     }
 

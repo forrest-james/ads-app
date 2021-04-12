@@ -34,12 +34,20 @@ public class MainMenuFragment extends Fragment {
 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_menu, container, false);
+        MainActivity activity = (MainActivity)getActivity();
+
         View departmentButton = view.findViewById(R.id.departments_menu_nav);
         departmentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MainActivity activity = (MainActivity)getActivity();
                 activity.navigateToDepartments(v);
+            }
+        });
+        View shoppingButton = view.findViewById(R.id.shopping_menu_nav);
+        shoppingButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activity.navigateToShopping(v);
             }
         });
         return view;

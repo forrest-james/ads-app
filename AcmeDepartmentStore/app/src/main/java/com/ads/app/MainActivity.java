@@ -30,6 +30,11 @@ public class MainActivity extends AppCompatActivity {
         replaceFragment(R.id.page_container, new NotImplementedFragment(), NotImplementedFragment.FRAGMENT_TAG, null);
     }
 
+    public void navigateToShopping(View view) {
+        _pageTitle.setText("Shopping");
+        replaceFragment(R.id.page_container, new ShoppingFragment(), ShoppingFragment.FRAGMENT_TAG, null);
+    }
+
     public void navigateToDepartments(View view) {
         _pageTitle.setText("Departments");
         replaceFragment(R.id.page_container, new DepartmentsFragment(), DepartmentsFragment.FRAGMENT_TAG, null);

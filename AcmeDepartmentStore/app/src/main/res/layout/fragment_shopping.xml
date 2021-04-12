@@ -52,18 +52,26 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <HorizontalScrollView
-                android:id="@+id/popular_items_scroll"
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="100dp">
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                <GridView
+                    android:id="@+id/popular_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:columnWidth="100dp"
+                    android:horizontalSpacing="10dp"
+                    android:numColumns="5"
+                    android:rowCount="1"
+                    android:scrollbars="horizontal" />
 
-                </LinearLayout>
-            </HorizontalScrollView>
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -74,16 +82,32 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <HorizontalScrollView
-                android:id="@+id/recommended_items_scroll"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="100dp">
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical" />
-            </HorizontalScrollView>
+                <GridView
+                    android:id="@+id/recommended_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:columnWidth="100dp"
+                    android:horizontalSpacing="10dp"
+                    android:numColumns="5"
+                    android:rowCount="1"
+                    android:scrollbars="horizontal" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/department_grids"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"></LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 

@@ -72,7 +72,7 @@ public class DataManager {
         for(int i = 0; i < rand.nextInt(5) + 1; i++) {
             items.add(new Item(
                     String.format("%s000%d", departmentName.charAt(0), i),
-                    String.format("%s000%d", departmentName, i),
+                    String.format("%s0%d", departmentName.substring(0,3), i),
                     rand.nextInt(10) + 0.99,
                     rand.nextBoolean(),
                     rand.nextBoolean()

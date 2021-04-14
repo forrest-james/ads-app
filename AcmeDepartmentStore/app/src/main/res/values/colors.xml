@@ -6,6 +6,6 @@
     <color name="red_700">#FFB01030</color>
     <color name="red_900">#FFA40c24</color>
     <color name="black">#FF000000</color>
-    <color name="gray">#FF888888</color>
+    <color name="gray">#FFCCCCCC</color>
     <color name="white">#FFFFFFFF</color>
 </resources>

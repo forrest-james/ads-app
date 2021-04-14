@@ -8,8 +8,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ExpandableListView;
 import android.widget.GridView;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class ShoppingFragment extends Fragment {
@@ -36,23 +38,44 @@ public class ShoppingFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_shopping, container, false);
 
-        final GridView popularItemView = (GridView) view.findViewById(R.id.popular_list);
-        final GridView recommendedItemView = (GridView) view.findViewById(R.id.recommended_list);
-
         List<Item> popularItems = DataManager.getInstance().PopularItems();
         if(popularItems.size() > 5) {
             popularItems = popularItems.subList(0, 4);
         }
-        final ItemListAdapter popularAdapter = new ItemListAdapter(getActivity(), popularItems);
-        popularItemView.setAdapter(popularAdapter);
 
         List<Item> recommendedItems = DataManager.getInstance().RecommendedItems();
         if(recommendedItems.size() > 5) {
             recommendedItems = recommendedItems.subList(0, 4);
         }
 
-        final ItemListAdapter recommendedAdapter = new ItemListAdapter(getActivity(), recommendedItems);
-        recommendedItemView.setAdapter(recommendedAdapter);
+        List<Department> departments = DataManager.getInstance().Departments();
+        List<String> departmentNames = DataManager.getInstance().DepartmentNames();
+
+        departmentNames.add(0, "Popular Items");
+        departmentNames.add(1, "Recommended Items");
+
+        HashMap<String, List<Item>> departmentData = new HashMap<String, List<Item>>();
+
+        departmentData.put("Popular Items", popularItems);
+        departmentData.put("Recommended Items", recommendedItems);
+
+        for(int i = 0; i < departments.size(); i++) {
+            departmentData.put(departments.get(i).Name(), departments.get(i).Items());
+        }
+
+        ExpandableListView departmentListView = (ExpandableListView) view.findViewById(R.id.department_items);
+        ExpandableListAdapter departmentListAdapter = new ExpandableListAdapter(view.getContext(), departmentNames, departmentData);
+        departmentListView.setAdapter(departmentListAdapter);
+        for (int i = 0; i < departmentNames.size(); i++) {
+            departmentListView.expandGroup(i);
+        }
+
+        departmentListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+            @Override
+            public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
+                return true;
+            }
+        });
 
         return view;
     }

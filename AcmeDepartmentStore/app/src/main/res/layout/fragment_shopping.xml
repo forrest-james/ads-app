@@ -6,109 +6,42 @@
     android:layout_height="match_parent"
     android:background="@color/gray">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/sale_label"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="275dp"
-                android:layout_margin="10dp">
-
-                <ImageView
-                    android:id="@+id/sale_marquee"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_baseline_announcement" />
-
-                <TextView
-                    android:id="@+id/sale_label"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:gravity="center_horizontal"
-                    android:text="Shop more exclusive sales"
-                    android:textColor="@color/black"
-                    android:textSize="28sp"
-                    android:textStyle="bold|italic" />
-
-            </FrameLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:text="Popular Items"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/red_100"
+            android:drawableStart="@drawable/ic_baseline_announcement"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="Shop more exclusive sales"
+            android:textColor="@color/black"
+            android:textSize="28sp"
+            android:textStyle="bold|italic"
+            app:drawableTint="@color/black" />
 
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="10dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp">
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black" />
 
-                <GridView
-                    android:id="@+id/popular_list"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:columnWidth="100dp"
-                    android:horizontalSpacing="10dp"
-                    android:numColumns="5"
-                    android:rowCount="1"
-                    android:scrollbars="horizontal" />
+        <ExpandableListView
+            android:id="@+id/department_items"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:text="Recommended Items"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="10dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp">
-
-                <GridView
-                    android:id="@+id/recommended_list"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:columnWidth="100dp"
-                    android:horizontalSpacing="10dp"
-                    android:numColumns="5"
-                    android:rowCount="1"
-                    android:scrollbars="horizontal" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/department_grids"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"></LinearLayout>
-
-        </LinearLayout>
-    </ScrollView>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

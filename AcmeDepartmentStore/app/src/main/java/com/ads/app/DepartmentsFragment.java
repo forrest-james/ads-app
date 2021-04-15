@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -44,5 +45,12 @@ public class DepartmentsFragment extends Fragment {
         final List<String> departmentsList = DataManager.getInstance().DepartmentNames();
         final ArrayAdapter adapter = new ArrayAdapter(getActivity(), R.layout.department_list, R.id.department_label, departmentsList);
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                MainActivity activity = (MainActivity)getActivity();
+                activity.navigateToDepartmentItems(view, position);
+            }
+        });
     }
 }

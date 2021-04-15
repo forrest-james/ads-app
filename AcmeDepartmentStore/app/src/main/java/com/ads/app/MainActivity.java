@@ -3,6 +3,8 @@ package com.ads.app;
 import androidx.appcompat.app.AppCompatActivity;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -38,6 +40,17 @@ public class MainActivity extends AppCompatActivity {
     public void navigateToDepartments(View view) {
         _pageTitle.setText("Departments");
         replaceFragment(R.id.page_container, new DepartmentsFragment(), DepartmentsFragment.FRAGMENT_TAG, null);
+    }
+
+    public void navigateToDepartmentItems(View view, int index) {
+        _pageTitle.setText(DataManager.getInstance().DepartmentNames().get(index));
+
+        DepartmentItemsFragment fragment = new DepartmentItemsFragment();
+        Bundle arguments = new Bundle();
+        arguments.putInt("index", index);
+        fragment.setArguments(arguments);
+
+        replaceFragment(R.id.page_container, fragment, DepartmentItemsFragment.FRAGMENT_TAG, null);
     }
 
     // Fragment Handlers

@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 import android.widget.GridView;
+import android.widget.TextView;
 
 import java.util.HashMap;
 import java.util.List;
@@ -37,6 +38,15 @@ public class ShoppingFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_shopping, container, false);
+
+        TextView saleBanner = view.findViewById(R.id.sale_label);
+        saleBanner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity activity = (MainActivity) getActivity();
+                activity.navigationNotFound(v);
+            }
+        });
 
         List<Item> popularItems = DataManager.getInstance().PopularItems();
         if(popularItems.size() > 5) {

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import java.util.List;
@@ -38,6 +39,14 @@ public class DepartmentItemsFragment extends Fragment {
         GridView itemGridView = (GridView)view.findViewById(R.id.department_items_grid);
         ItemGridAdapter itemGridAdapter = new ItemGridAdapter(view.getContext(), items);
         itemGridView.setAdapter(itemGridAdapter);
+
+        itemGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                MainActivity activity = (MainActivity)getActivity();
+                activity.navigateToItem(view, index, position);
+            }
+        });
 
         return view;
     }

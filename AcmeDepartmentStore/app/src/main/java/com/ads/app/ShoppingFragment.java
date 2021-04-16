@@ -87,6 +87,15 @@ public class ShoppingFragment extends Fragment {
             }
         });
 
+        departmentListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+                MainActivity activity = (MainActivity) getActivity();
+                activity.navigateToItem(v, groupPosition, childPosition);
+                return true;
+            }
+        });
+
         return view;
     }
 }

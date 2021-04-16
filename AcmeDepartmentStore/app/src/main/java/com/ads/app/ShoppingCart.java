@@ -1,5 +1,6 @@
 package com.ads.app;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ShoppingCart {
@@ -16,7 +17,7 @@ public class ShoppingCart {
     }
 
     // Properties
-    List<ShoppingCartItem> CartItems;
+    List<ShoppingCartItem> CartItems = new ArrayList<>();
 
     // Getters
     public List<ShoppingCartItem> CartItems() {

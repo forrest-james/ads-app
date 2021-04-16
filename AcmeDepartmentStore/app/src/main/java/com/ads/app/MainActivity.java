@@ -53,6 +53,18 @@ public class MainActivity extends AppCompatActivity {
         replaceFragment(R.id.page_container, fragment, DepartmentItemsFragment.FRAGMENT_TAG, null);
     }
 
+    public void navigateToItem(View view, int department, int item) {
+        _pageTitle.setText(DataManager.getInstance().DepartmentNames().get(department));
+
+        ItemFragment fragment = new ItemFragment();
+        Bundle arguments = new Bundle();
+        arguments.putInt("departmentIndex", department);
+        arguments.putInt("itemIndex", item);
+        fragment.setArguments(arguments);
+
+        replaceFragment(R.id.page_container, fragment, ItemFragment.FRAGMENT_TAG, null);
+    }
+
     // Fragment Handlers
     private void addFragment(int containerId, Fragment fragment, String fragmentTag) {
         getSupportFragmentManager()

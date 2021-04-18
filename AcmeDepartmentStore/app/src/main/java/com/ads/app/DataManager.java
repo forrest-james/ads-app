@@ -51,6 +51,15 @@ public class DataManager {
         return Departments.get(Departments.indexOf(department)).Items();
     }
 
+    public int getItemDepartment(Item item) {
+        for(int i = 0; i < Departments.size(); i++) {
+            if(Departments.get(i).findItem(item) >= 0) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
     // Create In Memory Data Set
     private void initializeDepartments() {
         List<String> departmentNames = new ArrayList<>();

@@ -52,11 +52,13 @@ public class ShoppingFragment extends Fragment {
         if(popularItems.size() > 5) {
             popularItems = popularItems.subList(0, 4);
         }
+        final List<Item> popItems = popularItems;
 
         List<Item> recommendedItems = DataManager.getInstance().RecommendedItems();
         if(recommendedItems.size() > 5) {
             recommendedItems = recommendedItems.subList(0, 4);
         }
+        final List<Item> recItems = recommendedItems;
 
         List<Department> departments = DataManager.getInstance().Departments();
         List<String> departmentNames = DataManager.getInstance().DepartmentNames();
@@ -91,6 +93,15 @@ public class ShoppingFragment extends Fragment {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
                 MainActivity activity = (MainActivity) getActivity();
+
+                if(groupPosition == 0) {
+                    groupPosition = DataManager.getInstance().getItemDepartment(popItems.get(childPosition));
+                    childPosition = DataManager.getInstance().Departments().get(groupPosition).findItem(popItems.get(childPosition));
+                }
+                else if(groupPosition == 1) {
+                    groupPosition = DataManager.getInstance().getItemDepartment(recItems.get(childPosition));
+                    childPosition = DataManager.getInstance().Departments().get(groupPosition).findItem(recItems.get(childPosition));
+                }
                 activity.navigateToItem(v, groupPosition, childPosition);
                 return true;
             }

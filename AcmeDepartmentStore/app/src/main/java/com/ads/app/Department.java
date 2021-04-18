@@ -58,4 +58,8 @@ public class Department {
         }
         return tempList;
     }
+
+    public int findItem(Item item) {
+        return Items.indexOf(item);
+    }
 }

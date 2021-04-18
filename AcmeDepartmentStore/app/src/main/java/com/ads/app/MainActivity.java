@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -25,6 +26,14 @@ public class MainActivity extends AppCompatActivity {
         _pageTitle = (TextView)findViewById(R.id.pageTitle);
         _pageTitle.setText(getString(R.string.app_name));
         addFragment(R.id.page_container, new MainMenuFragment(), MainMenuFragment.FRAGMENT_TAG);
+
+        ImageView cart = (ImageView)findViewById(R.id.shopping_cart);
+        cart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navigateToCart(v);
+            }
+        });
     }
 
     // Public Fragment calls
@@ -63,6 +72,12 @@ public class MainActivity extends AppCompatActivity {
         fragment.setArguments(arguments);
 
         replaceFragment(R.id.page_container, fragment, ItemFragment.FRAGMENT_TAG, null);
+    }
+
+    public void navigateToCart(View view) {
+        _pageTitle.setText("Shopping Cart");
+        ShoppingCartFragment fragment = new ShoppingCartFragment();
+        replaceFragment(R.id.page_container, fragment, ShoppingCartFragment.FRAGMENT_TAG, null);
     }
 
     // Fragment Handlers

@@ -42,7 +42,13 @@ public class ShoppingCart {
     }
 
     public void decrementItem(ShoppingCartItem item) {
-        CartItems.get(CartItems.indexOf(item)).decrementItem();
+        if(item.Quantity() > 1) {
+            CartItems.get(CartItems.indexOf(item)).decrementItem();
+        }
+        else {
+            // If quantity is 1 (or less), decrementing = remove
+            removeItem(item);
+        }
     }
 
     public void removeItem(ShoppingCartItem item) {

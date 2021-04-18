@@ -22,11 +22,13 @@ public class MainActivity extends AppCompatActivity {
         // Initialize the in memory data
         DataManager.getInstance();
 
+        // Set initial content
         setContentView(R.layout.activity_main);
         _pageTitle = (TextView)findViewById(R.id.pageTitle);
         _pageTitle.setText(getString(R.string.app_name));
         addFragment(R.id.page_container, new MainMenuFragment(), MainMenuFragment.FRAGMENT_TAG);
 
+        // Add Shopping Cart action
         ImageView cart = (ImageView)findViewById(R.id.shopping_cart);
         cart.setOnClickListener(new View.OnClickListener() {
             @Override

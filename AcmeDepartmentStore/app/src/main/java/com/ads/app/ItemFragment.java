@@ -18,10 +18,13 @@ public class ItemFragment extends Fragment {
 
     public static ItemFragment newInstance(int department, int item) {
         ItemFragment fragment = new ItemFragment();
+
+        // Create arguments
         Bundle args = new Bundle();
         args.putInt("departmentIndex", department);
         args.putInt("itemIndex", item);
         fragment.setArguments(args);
+
         return fragment;
     }
 
@@ -32,17 +35,18 @@ public class ItemFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_item, container, false);
+
         Item item = getItem();
 
+        // Set values from Object
         TextView itemName = view.findViewById(R.id.item_name_page);
         itemName.setText(item.Name());
-
         TextView itemPrice = view.findViewById(R.id.item_price_page);
         itemPrice.setText(String.format("%1$,.2f", item.Price()));
-
         TextView itemCode = view.findViewById(R.id.item_code);
         itemCode.setText(item.ItemNumber());
 
+        // Set action for Adding to Cart
         Button addItem = view.findViewById(R.id.btn_add_item);
         addItem.setOnClickListener(new View.OnClickListener() {
             @Override

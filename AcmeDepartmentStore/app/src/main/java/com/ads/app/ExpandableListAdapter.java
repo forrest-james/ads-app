@@ -42,9 +42,9 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
             convertView = childInflater.inflate(R.layout.item_list, null);
         }
 
+        // Set values from Object
         TextView name = (TextView)convertView.findViewById(R.id.item_name);
         name.setText(child.Name());
-
         TextView price = (TextView)convertView.findViewById(R.id.item_price);
         price.setText(String.format("%1$,.2f", child.Price()));
 
@@ -79,6 +79,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
             convertView = groupInflater.inflate(R.layout.list_group, null);
         }
 
+        // Set values from Object
         TextView listHeader = (TextView) convertView.findViewById(R.id.list_header);
         listHeader.setText(header);
 

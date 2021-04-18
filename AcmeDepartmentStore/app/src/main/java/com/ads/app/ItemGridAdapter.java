@@ -30,9 +30,9 @@ public class ItemGridAdapter extends ArrayAdapter<Item> {
 
         Item currentItem = _items.get(position);
 
+        // Set values from Object
         TextView name = (TextView)listItem.findViewById(R.id.item_name_grid);
         name.setText(currentItem.Name());
-
         TextView price = (TextView)listItem.findViewById(R.id.item_price_grid);
         price.setText(String.format("%1$,.2f", currentItem.Price()));
 

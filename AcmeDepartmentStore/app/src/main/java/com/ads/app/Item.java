@@ -10,8 +10,8 @@ public class Item {
 
     // Constructors
     public Item() {
-        ItemNumber = "00001";
-        Name = "TestItem01";
+        ItemNumber = "X0001";
+        Name = "Test Item 01";
         Price = 1.99;
         IsPopular = false;
         IsRecommended = false;

@@ -32,14 +32,16 @@ public class DepartmentItemsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_department_items, container, false);
-        int index = getArguments().getInt("index", 0);
 
+        int index = getArguments().getInt("index", 0);
         List<Item> items = DataManager.getInstance().getDepartmentItems(DataManager.getInstance().Departments().get(index));
 
+        // Set Adapter for GridView
         GridView itemGridView = (GridView)view.findViewById(R.id.department_items_grid);
         ItemGridAdapter itemGridAdapter = new ItemGridAdapter(view.getContext(), items);
         itemGridView.setAdapter(itemGridAdapter);
 
+        // Add Click Listener for Grid children
         itemGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

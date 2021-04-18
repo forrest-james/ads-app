@@ -34,8 +34,10 @@ public class MainMenuFragment extends Fragment {
 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_menu, container, false);
+
         MainActivity activity = (MainActivity)getActivity();
 
+        // Set Menu Item actions
         View departmentButton = view.findViewById(R.id.departments_menu_nav);
         departmentButton.setOnClickListener(new View.OnClickListener() {
             @Override

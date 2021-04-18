@@ -57,7 +57,7 @@ public class DataManager {
                 return i;
             }
         }
-        return -1;
+        return -1;      // Shouldn't reach this, but just in case
     }
 
     // Create In Memory Data Set

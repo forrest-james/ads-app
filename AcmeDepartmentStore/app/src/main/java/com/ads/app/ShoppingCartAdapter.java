@@ -32,18 +32,17 @@ public class ShoppingCartAdapter extends ArrayAdapter<ShoppingCartItem> {
 
         ShoppingCartItem currentItem = _items.get(position);
 
+        // Set values from Object
         TextView name = (TextView)listItem.findViewById(R.id.cart_item_name);
         name.setText(currentItem.Item().Name());
-
         TextView price = (TextView)listItem.findViewById(R.id.cart_item_price);
         price.setText(String.format("%1$,.2f",currentItem.Item().Price()));
-
         TextView quantity = (TextView)listItem.findViewById(R.id.cart_item_qty);
         quantity.setText(String.format("Qty: %d", currentItem.Quantity()));
-
         TextView total = (TextView)listItem.findViewById(R.id.cart_item_total);
         total.setText(String.format("Item Total: %1$,.2f", currentItem.TotalPrice()));
 
+        // Add Item increment action
         TextView increment = (TextView)listItem.findViewById(R.id.incrementItem);
         increment.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,6 +52,7 @@ public class ShoppingCartAdapter extends ArrayAdapter<ShoppingCartItem> {
             }
         });
 
+        // Add Item decrement action
         TextView decrement = (TextView)listItem.findViewById(R.id.decrementItem);
         decrement.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +62,7 @@ public class ShoppingCartAdapter extends ArrayAdapter<ShoppingCartItem> {
             }
         });
 
+        // Add Item removal action
         TextView remove = (TextView)listItem.findViewById(R.id.removeItem);
         remove.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,6 +76,7 @@ public class ShoppingCartAdapter extends ArrayAdapter<ShoppingCartItem> {
     }
 
     // Private Methods
+    // Refresh the Fragment to update display of values
     private void refreshShoppingCart() {
         _fragment.getFragmentManager().beginTransaction().detach(_fragment).attach(_fragment).commit();
     }

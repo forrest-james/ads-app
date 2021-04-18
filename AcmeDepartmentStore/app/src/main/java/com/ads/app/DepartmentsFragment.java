@@ -36,15 +36,15 @@ public class DepartmentsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_departments, container, false);
-    }
+        View view = inflater.inflate(R.layout.fragment_departments, container, false);
 
-    @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        final ListView listView = view.findViewById(R.id.department_listview);
-        final List<String> departmentsList = DataManager.getInstance().DepartmentNames();
-        final ArrayAdapter adapter = new ArrayAdapter(getActivity(), R.layout.department_list, R.id.department_label, departmentsList);
+        // Set adapter for ListView
+        ListView listView = view.findViewById(R.id.department_listview);
+        List<String> departmentsList = DataManager.getInstance().DepartmentNames();
+        ArrayAdapter adapter = new ArrayAdapter(getActivity(), R.layout.department_list, R.id.department_label, departmentsList);
         listView.setAdapter(adapter);
+
+        // Set Click Listener for ListView children
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -52,5 +52,7 @@ public class DepartmentsFragment extends Fragment {
                 activity.navigateToDepartmentItems(view, position);
             }
         });
+
+        return view;
     }
 }
